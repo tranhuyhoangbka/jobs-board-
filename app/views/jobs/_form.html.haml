@@ -1,0 +1,19 @@
+= simple_form_for @job, html: {class: "form-horizontal", multipart: true} do |f|
+  = render "shared/error_messages", object: f.object
+  .form-group
+    = f.input :title, input_html: {class: "form-control"}
+
+  .form-group
+    = f.input :description, input_html: {class: "form-control"}
+
+  .form-group
+    = f.input :company, input_html: {class: "form-control"}
+
+  .form-group
+    = f.input :url, input_html: {class: "form-control"}
+
+  .form-group
+    = f.association :category, as: :select
+
+  = f.button :submit, class: "btn btn-default"
+
