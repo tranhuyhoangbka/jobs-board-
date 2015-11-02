@@ -14,6 +14,6 @@ end
     description: Faker::Lorem.paragraph,
     company: Faker::Company.name,
     url: Faker::Internet.url,
-    category_id: Category.all.sample.id
+    category_id: (1..5).to_a.sample
     )
 end

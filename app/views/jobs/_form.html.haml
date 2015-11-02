@@ -1,19 +1,10 @@
 = simple_form_for @job, html: {class: "form-horizontal", multipart: true} do |f|
   = render "shared/error_messages", object: f.object
-  .form-group
-    = f.input :title, input_html: {class: "form-control"}
-
-  .form-group
-    = f.input :description, input_html: {class: "form-control"}
-
-  .form-group
-    = f.input :company, input_html: {class: "form-control"}
-
-  .form-group
-    = f.input :url, input_html: {class: "form-control"}
-
-  .form-group
-    = f.association :category, as: :select
-
+  = f.association :category, collection: Category.all.order(:name), prompt: "Choose a Category"
+  = f.input :title, input_html: {class: "form-control"}
+  = f.input :description, as: :bootsy, input_html: {class: "form-control"}
+  = f.input :company, input_html: {class: "form-control"}
+  = f.input :url, input_html: {class: "form-control"}
+  = f.input :image, as: :image_preview, label: "Choose Image", input_html: {class: "form-control", preview_version: :thumb}
   = f.button :submit, class: "btn btn-default"
 

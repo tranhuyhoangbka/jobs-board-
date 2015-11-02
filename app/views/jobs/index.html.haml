@@ -1,0 +1,14 @@
+#jobs
+  - @jobs.each do |job|
+    = content_tag_for :div, job do
+      .row
+        .col-md-2
+          - if job.image.present?
+            = image_tag job.image.thumb.url, class: "img-responsive"
+          - else
+            = image_tag "noimages.png"
+        .col-md-10
+          %h2= link_to job.title, job_path(job)
+          %p= job.company
+= link_to "Back", :back, class: "btn btn-default"
+

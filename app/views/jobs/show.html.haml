@@ -1,0 +1,15 @@
+.job
+  .panel.panel-default
+    .panel-heading
+      %h2= @job.title
+    .panel-body
+      %p= @job.company
+      .imageJob
+        = image_tag @job.image.url
+      %p= @job.description.html_safe
+      = link_to "Apply for job", @job.url, class: "btn btn-primary"
+    .panel-footer
+      #links
+        = link_to 'Edit', edit_job_path(@job), class: "btn btn-default" |
+        = link_to 'Delete', job_path(@job), class: "btn btn-default"
+        = link_to 'Back', jobs_path, class: "btn btn-default" |

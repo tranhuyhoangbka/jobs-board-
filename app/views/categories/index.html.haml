@@ -1,0 +1,6 @@
+%ul#categories.list-unstyled
+  - @categories.each do |category|
+    .col-md-3
+      = content_tag_for :li, category do
+        .image= image_tag category.image.thumb.url
+        %h3.text-center= link_to category.name, category_path(category)
