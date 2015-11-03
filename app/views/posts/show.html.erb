@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<% present(@post) do |post| %>
+  <h2><%= post.title %></h2>
+  <p><%= post.publication_status %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
